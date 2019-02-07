@@ -39,6 +39,8 @@ class App extends Component {
     var YearPercentage = (month / 12) * 100;
     var WeekPercentage = (day / 7) * 100;
     var DayPercentage = ((hour * 3600 + minutes * 60 + seconds) / 86400) * 100;
+    var HourPercentage = (minutes / 60) * 100;
+    var MinutePercentage = (seconds / 60) * 100;
 
     return {
       date: date,
@@ -50,7 +52,9 @@ class App extends Component {
       seconds: seconds,
       YearPercentage: YearPercentage,
       WeekPercentage: WeekPercentage,
-      DayPercentage: DayPercentage
+      DayPercentage: DayPercentage,
+      HourPercentage: HourPercentage,
+      MinutePercentage: MinutePercentage
     };
   }
   stateUpdate() {
@@ -79,6 +83,16 @@ class App extends Component {
           class="day"
           label="How much is left today ?"
           percentage={this.state.DayPercentage}
+        />
+        <LoadingBar
+          class="hour"
+          label="How much is left in this hour ?"
+          percentage={this.state.HourPercentage}
+        />
+        <LoadingBar
+          class="second"
+          label="How much is left in this minute ?"
+          percentage={this.state.MinutePercentage}
         />
         <button onClick={this.stateUpdate.bind(this)}>UPDATE</button>
       </div>
