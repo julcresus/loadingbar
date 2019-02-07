@@ -80,7 +80,7 @@ class App extends Component {
           label="How much is left today ?"
           percentage={this.state.DayPercentage}
         />
-        <button onClick={this.stateUpdate.bind(this)}>FORCE UPDATE</button>
+        <button onClick={this.stateUpdate.bind(this)}>UPDATE</button>
       </div>
     );
   }
